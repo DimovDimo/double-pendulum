@@ -1,5 +1,7 @@
-let canvas1 = document.getElementById("canvas-1");
-let canvas2 = document.getElementById("canvas-2");
+let canvasContext1 = get2dCanvasContext("canvas-1");
+let canvasContext2 = get2dCanvasContext("canvas-2");
 
-let context1 = canvas1.getContext("2d");
-let context2 = canvas2.getContext("2d");
+function get2dCanvasContext(canvasId){
+    let canvas = document.getElementById(canvasId);
+    return canvas.getContext("2d");
+}
