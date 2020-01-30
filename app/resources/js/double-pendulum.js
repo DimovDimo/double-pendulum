@@ -1,5 +1,6 @@
 const canvasId1 = "canvas-1";
 const canvasId2 = "canvas-2";
+const gravity = 1;
 
 let canvas1 =  getCanvas(canvasId1);
 let canvas2 =  getCanvas(canvasId2);
