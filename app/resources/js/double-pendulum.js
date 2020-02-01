@@ -7,7 +7,7 @@ const radius1 = 0.2;
 const radius2 = 0.2;
 
 let canvas1 =  getCanvas(canvasId1);
-let canvas2 =  getCanvas(canvasId2);//getCanvas(canvasId1);
+let canvas2 =  getCanvas(canvasId2);
 
 let context1 = canvas1.getContext("2d");
 let context2 = canvas2.getContext("2d");
@@ -18,8 +18,11 @@ setCanvasWidthAndHeight(canvas2);
 let width = innerWidth;
 let height = innerHeight;
 
-let length1 = pendulumLength(width, height, radius1);
-let length2 = pendulumLength(width, height, radius2);
+let length1 = getPendulumLength(width, height, radius1);
+let length2 = getPendulumLength(width, height, radius2);
+
+let angle1 = getRandomAngle();
+let angle2 = getRandomAngle();
 
 function getCanvas(canvasId){
     return document.getElementById(canvasId);
@@ -30,6 +33,10 @@ function setCanvasWidthAndHeight(canvas){
     canvas.height = innerHeight;
 }
 
-function pendulumLength(width, height, radius){
+function getPendulumLength(width, height, radius){
     return Math.min(width,height) * radius;
+}
+
+function getRandomAngle(){
+    return Math.PI/Math.random();
 }
