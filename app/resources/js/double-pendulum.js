@@ -1,10 +1,10 @@
 const canvasId1 = "canvas-1";
 const canvasId2 = "canvas-2";
-const gravity = 1.5;
-const mass1 = 15;
-const mass2 = 7;
-const radius1 = 0.2;
-const radius2 = 0.2;
+const gravity = getRandomArbitrary(0.75, 1.25);
+const mass1 = getRandomArbitrary(8, 12);
+const mass2 = getRandomArbitrary(5, 8);
+const radius1 = getRandomArbitrary(0.15, 0.25);
+const radius2 = getRandomArbitrary(0.15, 0.25);
 
 let canvas1 =  getCanvas(canvasId1);
 let canvas2 =  getCanvas(canvasId2);
@@ -39,4 +39,8 @@ function getPendulumLength(width, height, radius){
 
 function getRandomAngle(){
     return Math.PI/Math.random();
+}
+
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
 }
