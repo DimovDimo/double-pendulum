@@ -1,10 +1,25 @@
 const canvasId1 = "canvas-1";
 const canvasId2 = "canvas-2";
-const gravity = getRandomArbitrary(0.75, 1.25);
-const mass1 = getRandomArbitrary(8, 12);
-const mass2 = getRandomArbitrary(5, 8);
-const radius1 = getRandomArbitrary(0.15, 0.25);
-const radius2 = getRandomArbitrary(0.15, 0.25);
+
+let gravity = getRandomArbitrary(0.75, 1.25);
+
+let mass1 = getRandomArbitrary(8, 12);
+let mass2 = getRandomArbitrary(5, 8);
+
+let radius1 = getRandomArbitrary(0.15, 0.25);
+let radius2 = getRandomArbitrary(0.15, 0.25);
+
+let angle1 = getRandomAngle();
+let angle2 = getRandomAngle();
+
+let lastCoordinateX = 0;
+let lastCoordinateY = 0;
+
+let velocity1 = 0;
+let velocity2 = 0;
+
+let acceletation1 = 0;
+let acceletation2 = 0;
 
 let canvas1 =  getCanvas(canvasId1);
 let canvas2 =  getCanvas(canvasId2);
@@ -20,9 +35,6 @@ let height = innerHeight;
 
 let length1 = getPendulumLength(width, height, radius1);
 let length2 = getPendulumLength(width, height, radius2);
-
-let angle1 = getRandomAngle();
-let angle2 = getRandomAngle();
 
 function getCanvas(canvasId){
     return document.getElementById(canvasId);
