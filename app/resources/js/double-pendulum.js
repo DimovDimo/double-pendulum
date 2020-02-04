@@ -1,5 +1,6 @@
 const canvasId1 = "canvas-1";
 const canvasId2 = "canvas-2";
+const lineCap = "round";
 
 let gravity = getRandomArbitrary(0.75, 1.25);
 
@@ -29,6 +30,9 @@ let context2 = canvas2.getContext("2d");
 
 setCanvasWidthAndHeight(canvas1);
 setCanvasWidthAndHeight(canvas2);
+
+context1.lineWidth = getRandomArbitrary(4, 4);
+context1.lineCap = lineCap;
 
 let width = innerWidth;
 let height = innerHeight;
