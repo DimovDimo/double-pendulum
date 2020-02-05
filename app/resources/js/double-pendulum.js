@@ -1,6 +1,7 @@
 const canvasId1 = "canvas-1";
 const canvasId2 = "canvas-2";
 const lineCap = "round";
+const coordinateConstant = 2;
 
 let gravity = getRandomArbitrary(0.75, 1.25);
 
@@ -40,6 +41,11 @@ let height = innerHeight;
 let length1 = getPendulumLength(width, height, radius1);
 let length2 = getPendulumLength(width, height, radius2);
 
+(function start() {
+	let coordinateX = startCoordinate(width, coordinateConstant);
+	let coordinateY = startCoordinate(height, coordinateConstant);
+}());
+
 function getCanvas(canvasId){
     return document.getElementById(canvasId);
 }
@@ -59,4 +65,8 @@ function getRandomAngle(){
 
 function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
+}
+
+function startCoordinate(length, coordinateConstant){
+    return length/coordinateConstant;
 }
