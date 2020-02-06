@@ -3,7 +3,7 @@ const canvasId2 = "canvas-2";
 const lineCap = "round";
 const coordinateConstant = 2;
 
-let gravity = getRandomArbitrary(0.75, 1.25);
+let gravity = getRandomArbitrary(0.50, 1);
 
 let mass1 = getRandomArbitrary(8, 12);
 let mass2 = getRandomArbitrary(5, 8);
@@ -13,9 +13,6 @@ let radius2 = getRandomArbitrary(0.15, 0.25);
 
 let angle1 = getRandomAngle();
 let angle2 = getRandomAngle();
-
-let lastCoordinateX = 0;
-let lastCoordinateY = 0;
 
 let velocity1 = 0;
 let velocity2 = 0;
@@ -41,10 +38,8 @@ let height = innerHeight;
 let length1 = getPendulumLength(width, height, radius1);
 let length2 = getPendulumLength(width, height, radius2);
 
-(function start() {
-	let coordinateX = startCoordinate(width, coordinateConstant);
-	let coordinateY = startCoordinate(height, coordinateConstant);
-}());
+let lastCoordinateX = startCoordinate(width, true);	
+let lastCoordinateY = startCoordinate(height, false);
 
 function getCanvas(canvasId){
     return document.getElementById(canvasId);
@@ -67,6 +62,19 @@ function getRandomArbitrary(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-function startCoordinate(length, coordinateConstant){
-    return length/coordinateConstant;
+function startCoordinate(length, isSin){
+    let coordinate = length/coordinateConstant;
+	if(isSin){
+		return startCoordinateSin(coordinate);
+	}
+	
+	return startCoordinateCos(coordinate);
+}
+
+function startCoordinateSin(coordinate){
+	return (coordinate + length1 * Math.sin(angle1)) + length2 * Math.sin(angle2);
+}
+
+function startCoordinateCos(coordinate){
+	return (coordinate + length2 * Math.cos(angle2)) + length1 * Math.cos(angle1);
 }
