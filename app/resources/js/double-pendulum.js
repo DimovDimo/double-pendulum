@@ -41,6 +41,12 @@ let length2 = getPendulumLength(width, height, radius2);
 let lastCoordinateX = startCoordinate(width, true);	
 let lastCoordinateY = startCoordinate(height, false);
 
+animation();
+
+function animation(){
+    canvasClearRect(context1);
+}
+
 function getCanvas(canvasId){
     return document.getElementById(canvasId);
 }
@@ -77,4 +83,8 @@ function startCoordinateSin(coordinate){
 
 function startCoordinateCos(coordinate){
 	return (coordinate + length2 * Math.cos(angle2)) + length1 * Math.cos(angle1);
+}
+
+function canvasClearRect(canvas){
+    canvas.clearRect(0, 0, width, height);
 }
