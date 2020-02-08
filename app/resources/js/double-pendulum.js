@@ -45,6 +45,11 @@ animation();
 
 function animation(){
     canvasClearRect(context1);
+    doublePendulum();
+}
+
+function doublePendulum(){
+    let direction = getDirection();
 }
 
 function getCanvas(canvasId){
@@ -87,4 +92,8 @@ function startCoordinateCos(coordinate){
 
 function canvasClearRect(canvas){
     canvas.clearRect(0, 0, width, height);
+}
+
+function getDirection(){
+	return Math.sin(angle1) * (-gravity) * ((coordinateConstant * mass1) + mass2);
 }
