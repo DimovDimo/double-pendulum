@@ -50,6 +50,7 @@ function animation(){
 
 function doublePendulum(){
     let direction = getDirection();
+    let way = getWay();
 }
 
 function getCanvas(canvasId){
@@ -96,4 +97,8 @@ function canvasClearRect(canvas){
 
 function getDirection(){
 	return Math.sin(angle1) * (-gravity) * ((coordinateConstant * mass1) + mass2);
+}
+
+function getWay(){
+	return Math.sin(angle1 - (coordinateConstant * angle2)) * mass2 * (-gravity);
 }
