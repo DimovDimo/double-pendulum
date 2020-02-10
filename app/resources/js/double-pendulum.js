@@ -51,6 +51,7 @@ function animation(){
 function doublePendulum(){
     let direction = getDirection();
     let way = getWay();
+    let speed = getSpeed();
 }
 
 function getCanvas(canvasId){
@@ -101,4 +102,8 @@ function getDirection(){
 
 function getWay(){
 	return Math.sin(angle1 - (coordinateConstant * angle2)) * mass2 * (-gravity);
+}
+
+function getSpeed(){
+	return (mass2 * Math.sin(angle1 - angle2)) * (-coordinateConstant);
 }
