@@ -53,6 +53,7 @@ function doublePendulum(){
     let way = getWay();
     let speed = getSpeed();
     let rapidity = getRapidity();
+    let oscillation = getOscillation();
 }
 
 function getCanvas(canvasId){
@@ -111,4 +112,8 @@ function getSpeed(){
 
 function getRapidity(){
 	return (((length1 * Math.cos(angle1 - angle2)) * velocity1) * velocity1) + ((velocity2 * length2) * velocity2);
+}
+
+function getOscillation(){
+	return (mass2 - (Math.cos((coordinateConstant * angle1) - (coordinateConstant * angle2)) * mass2) + (coordinateConstant * mass1)) * length1;
 }
