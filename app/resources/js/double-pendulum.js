@@ -44,17 +44,12 @@ let lastCoordinateY = startCoordinate(height, false);
 animation();
 
 function animation(){
-    canvasClearRect(context1);
+	canvasClearRect(context1);
     doublePendulum();
 }
 
 function doublePendulum(){
-    let direction = getDirection();
-    let way = getWay();
-    let speed = getSpeed();
-    let rapidity = getRapidity();
-    let oscillation = getOscillation();
-    acceletation1 = getAcceletation(direction, way, speed, rapidity, oscillation);
+    madePendulumType1();
 }
 
 function getCanvas(canvasId){
@@ -99,26 +94,41 @@ function canvasClearRect(canvas){
     canvas.clearRect(0, 0, width, height);
 }
 
-function getDirection(){
+function getDirectionType1(){
 	return Math.sin(angle1) * (-gravity) * ((coordinateConstant * mass1) + mass2);
 }
 
-function getWay(){
+function getWayType1(){
 	return Math.sin(angle1 - (coordinateConstant * angle2)) * mass2 * (-gravity);
 }
 
-function getSpeed(){
+function getSpeedType1(){
 	return (mass2 * Math.sin(angle1 - angle2)) * (-coordinateConstant);
 }
 
-function getRapidity(){
+function getRapidityType1(){
 	return (((length1 * Math.cos(angle1 - angle2)) * velocity1) * velocity1) + ((velocity2 * length2) * velocity2);
 }
 
-function getOscillation(){
+function getOscillationType1(){
 	return (mass2 - (Math.cos((coordinateConstant * angle1) - (coordinateConstant * angle2)) * mass2) + (coordinateConstant * mass1)) * length1;
 }
 
-function getAcceletation(direction, way, speed, rapidity, oscillation){
-	return ((speed * rapidity) + direction + way) / oscillation;
+function getPendulumType1(){
+	let direction = getDirectionType1();
+	let way = getWayType1();
+	let speed = getSpeedType1();
+	let rapidity = getRapidityType1();
+	let oscillation = getOscillationType1();	
+	let pendulumType1 = ((speed * rapidity) + direction + way) / oscillation;
+	
+	return pendulumType1;
+}
+
+function madePendulumType1(){
+	let pendulumType1 = getPendulumType1();
+	
+	acceletation1 = pendulumType1;
+	velocity1 = velocity1 + pendulumType1;
+	angle1 = angle1 + velocity1;
 }
