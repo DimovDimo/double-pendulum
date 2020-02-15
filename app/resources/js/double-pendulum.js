@@ -98,6 +98,10 @@ function getDirectionType1(){
 	return Math.sin(angle1) * (-gravity) * ((coordinateConstant * mass1) + mass2);
 }
 
+function getDirectionType2(){
+	return Math.sin(angle1 - angle2) * coordinateConstant;
+}
+
 function getWayType1(){
 	return Math.sin(angle1 - (coordinateConstant * angle2)) * mass2 * (-gravity);
 }
