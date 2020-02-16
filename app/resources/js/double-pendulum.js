@@ -106,6 +106,10 @@ function getWayType1(){
 	return Math.sin(angle1 - (coordinateConstant * angle2)) * mass2 * (-gravity);
 }
 
+function getWayType2(){
+	return ((mass1 + mass2) * length1) * (velocity1 * velocity1);
+}
+
 function getSpeedType1(){
 	return (mass2 * Math.sin(angle1 - angle2)) * (-coordinateConstant);
 }
