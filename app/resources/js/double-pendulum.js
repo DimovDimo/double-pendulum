@@ -114,6 +114,10 @@ function getSpeedType1(){
 	return (mass2 * Math.sin(angle1 - angle2)) * (-coordinateConstant);
 }
 
+function getSpeedType2(){
+	return Math.cos(angle1) * gravity * (mass1 + mass2);
+}
+
 function getRapidityType1(){
 	return (((length1 * Math.cos(angle1 - angle2)) * velocity1) * velocity1) + ((velocity2 * length2) * velocity2);
 }
