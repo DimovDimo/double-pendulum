@@ -126,8 +126,18 @@ function getRapidityType2(){
 	return (Math.cos(angle1 - angle2) * mass2) * ((velocity2 * length2) * velocity2);
 }
 
+function getOscillation(length){
+    let oscillation = mass2 - (Math.cos((coordinateConstant * angle1) - (coordinateConstant * angle2)) * mass2) + (coordinateConstant * mass1);
+	
+	return oscillation * length;
+}
+
 function getOscillationType1(){
-	return (mass2 - (Math.cos((coordinateConstant * angle1) - (coordinateConstant * angle2)) * mass2) + (coordinateConstant * mass1)) * length1;
+	return getOscillation(length1);
+}
+
+function getOscillationType2(){
+	return getOscillation(length2);
 }
 
 function getPendulumType1(){
