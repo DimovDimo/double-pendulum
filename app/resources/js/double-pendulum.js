@@ -132,23 +132,26 @@ function getOscillation(length){
 	return oscillation * length;
 }
 
-function getOscillationType1(){
-	return getOscillation(length1);
-}
-
-function getOscillationType2(){
-	return getOscillation(length2);
-}
-
 function getPendulumType1(){
 	let direction = getDirectionType1();
 	let way = getWayType1();
 	let speed = getSpeedType1();
 	let rapidity = getRapidityType1();
-	let oscillation = getOscillationType1();	
+	let oscillation = getOscillation(length1);
 	let pendulumType1 = ((speed * rapidity) + direction + way) / oscillation;
 	
 	return pendulumType1;
+}
+
+function getPendulumType2(){
+	let direction = getDirectionType2();
+	let way = getWayType2();
+	let speed = getSpeedType2();
+	let rapidity = getRapidityType2();
+	let oscillation = getOscillation(length2);
+	let pendulumType2 = ((way + speed + rapidity) * direction) / oscillation;
+	
+	return pendulumType2;
 }
 
 function madePendulumType1(){
