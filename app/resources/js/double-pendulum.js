@@ -49,7 +49,8 @@ function animation(){
 }
 
 function doublePendulum(){
-    madePendulumType1();
+	madePendulumType1();
+    madePendulumType2();
 }
 
 function getCanvas(canvasId){
@@ -160,4 +161,12 @@ function madePendulumType1(){
 	acceletation1 = pendulumType1;
 	velocity1 = velocity1 + pendulumType1;
 	angle1 = angle1 + velocity1;
+}
+
+function madePendulumType2(){
+	let pendulumType2 = getPendulumType2();
+	
+	acceletation2 = pendulumType2;	
+	velocity2 = velocity2 + acceletation2;
+	angle2 = angle2 + velocity2;
 }
