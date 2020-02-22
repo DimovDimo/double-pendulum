@@ -170,3 +170,7 @@ function madePendulumType2(){
 	velocity2 = velocity2 + acceletation2;
 	angle2 = angle2 + velocity2;
 }
+
+function contextBeginPath(context){
+	context.beginPath();
+}
