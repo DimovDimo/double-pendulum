@@ -45,7 +45,23 @@ animation();
 
 function animation(){
 	canvasClearRect(context1);
-    doublePendulum();
+	doublePendulum();
+	
+	contextBeginPath(context1);
+	
+	let newCoordinateWidth = getNewCoordinate(width);
+	let newCoordinateHeight = getNewCoordinate(height);
+	context1.moveTo(newCoordinateWidth, newCoordinateHeight);
+	
+	let coordinateX1 = getLineCoordinate(newCoordinateWidth, length1, angle1, true);
+	let coordinateY1 = getLineCoordinate(newCoordinateHeight, length1, angle1, false);	
+	contextLineTo(context1, coordinateX1, coordinateY1);
+	
+	let coordinateX2 = getLineCoordinate(coordinateX1, length2, angle2, true);
+	let coordinateY2 = getLineCoordinate(coordinateY1, length2, angle2, false);	
+	contextLineTo(context1, coordinateX2, coordinateY2);
+	
+	contextStroke(context1);
 }
 
 function doublePendulum(){
@@ -173,4 +189,27 @@ function madePendulumType2(){
 
 function contextBeginPath(context){
 	context.beginPath();
+}
+
+function getNewCoordinate(coordinate){
+	return coordinate / coordinateConstant;
+}
+
+function getLineCoordinate(newCoordinate, length, angle, isSin){
+	let mathAngle = 0;
+	if(isSin){
+		mathAngle = Math.sin(angle);
+	} else {
+	    mathAngle = Math.cos(angle);
+	}
+	
+	return (mathAngle * length) + newCoordinate;
+}
+
+function contextLineTo(context, coordinateX, coordinateY){
+    context.lineTo(coordinateX, coordinateY);
+}
+
+function contextStroke(context){
+    context.stroke();
 }
