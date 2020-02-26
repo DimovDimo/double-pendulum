@@ -4,6 +4,7 @@ const lineCap = "round";
 const coordinateConstant = 2;
 
 let gravity = getRandomArbitrary(0.50, 1);
+let radians = getRandomArbitrary(20, 30);
 
 let mass1 = getRandomArbitrary(8, 12);
 let mass2 = getRandomArbitrary(5, 8);
@@ -62,6 +63,9 @@ function animation(){
 	contextLineTo(context1, coordinateX2, coordinateY2);
 	
 	contextStroke(context1);
+
+	let radians1 = getRadians(mass1);
+	let radians2 = getRadians(mass2);
 }
 
 function doublePendulum(){
@@ -212,4 +216,8 @@ function contextLineTo(context, coordinateX, coordinateY){
 
 function contextStroke(context){
     context.stroke();
+}
+
+function getRadians(mass){
+    return Math.sqrt((mass * radians) / Math.PI)
 }
