@@ -219,5 +219,9 @@ function contextStroke(context){
 }
 
 function getRadians(mass){
-    return Math.sqrt((mass * radians) / Math.PI)
+    return Math.sqrt((mass * radians) / Math.PI);
+}
+
+function getMathPiCoordinate(){
+    return Math.PI * coordinateConstant;
 }
