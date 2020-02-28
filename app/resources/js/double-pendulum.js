@@ -66,6 +66,11 @@ function animation(){
 
 	let radians1 = getRadians(mass1);
 	let radians2 = getRadians(mass2);
+
+	contextBeginPath(context1);
+	
+	contextArc(context1, coordinateX1, coordinateY1, radians1);
+	contextArc(context1, coordinateX2, coordinateY2, radians2);
 }
 
 function doublePendulum(){
@@ -224,4 +229,8 @@ function getRadians(mass){
 
 function getMathPiCoordinate(){
     return Math.PI * coordinateConstant;
+}
+
+function contextArc(context, coordinateX, coordinateY, radians){
+    context.arc(coordinateX, coordinateY, radians, arcConstant, getMathPiCoordinate());
 }
