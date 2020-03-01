@@ -3,7 +3,7 @@ const canvasId2 = "canvas-2";
 const lineCap = "round";
 const coordinateConstant = 2;
 const arcConstant = 0;
-const piCoordinate = Math.PI * coordinateConstant;
+const piCoordinateConstant = Math.PI * coordinateConstant;
 
 let gravity = getRandomArbitrary(0.50, 1);
 let radians = getRandomArbitrary(20, 30);
@@ -75,6 +75,10 @@ function animation(){
 	contextArc(context1, coordinateX2, coordinateY2, radians2);
 
 	context1.fill();
+
+	contextBeginPath(context2);
+	context2.moveTo(lastCoordinateX,lastCoordinateY);
+	contextLineTo(context2, coordinateX2, coordinateY2);
 }
 
 function doublePendulum(){
@@ -232,5 +236,5 @@ function getRadians(mass){
 }
 
 function contextArc(context, coordinateX, coordinateY, radians){
-    context.arc(coordinateX, coordinateY, radians, arcConstant, piCoordinate);
+    context.arc(coordinateX, coordinateY, radians, arcConstant, piCoordinateConstant);
 }
