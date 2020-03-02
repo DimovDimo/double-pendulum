@@ -238,3 +238,8 @@ function getRadians(mass){
 function contextArc(context, coordinateX, coordinateY, radians){
     context.arc(coordinateX, coordinateY, radians, arcConstant, piCoordinateConstant);
 }
+
+function contextLineStyle(context, lineWidth, strokeStyle){
+	context.lineWidth = lineWidth;
+	context.strokeStyle = strokeStyle;
+}
