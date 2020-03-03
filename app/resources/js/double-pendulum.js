@@ -4,6 +4,8 @@ const lineCap = "round";
 const coordinateConstant = 2;
 const arcConstant = 0;
 const piCoordinateConstant = Math.PI * coordinateConstant;
+const contextLineWidthConstant = 2;
+const contexStrokeStyleConstant = "#000";
 
 let gravity = getRandomArbitrary(0.50, 1);
 let radians = getRandomArbitrary(20, 30);
@@ -75,10 +77,15 @@ function animation(){
 	contextArc(context1, coordinateX2, coordinateY2, radians2);
 
 	context1.fill();
-
+	
 	contextBeginPath(context2);
+	
 	context2.moveTo(lastCoordinateX,lastCoordinateY);
 	contextLineTo(context2, coordinateX2, coordinateY2);
+	
+	contextLineStyle(context2);
+	
+	context2.stroke();
 }
 
 function doublePendulum(){
@@ -239,7 +246,7 @@ function contextArc(context, coordinateX, coordinateY, radians){
     context.arc(coordinateX, coordinateY, radians, arcConstant, piCoordinateConstant);
 }
 
-function contextLineStyle(context, lineWidth, strokeStyle){
-	context.lineWidth = lineWidth;
-	context.strokeStyle = strokeStyle;
+function contextLineStyle(context){
+	context.lineWidth = contextLineWidthConstant;
+	context.strokeStyle = contexStrokeStyleConstant;
 }
