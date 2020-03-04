@@ -86,6 +86,10 @@ function animation(){
 	contextLineStyle(context2);
 	
 	context2.stroke();
+
+	setLastCoordinates(coordinateX2, coordinateY2);
+
+	requestAnimationFrame(animation);
 }
 
 function doublePendulum(){
@@ -249,4 +253,9 @@ function contextArc(context, coordinateX, coordinateY, radians){
 function contextLineStyle(context){
 	context.lineWidth = contextLineWidthConstant;
 	context.strokeStyle = contexStrokeStyleConstant;
+}
+
+function setLastCoordinates(coordinateX2, coordinateY2){
+	lastCoordinateX = coordinateX2;
+	lastCoordinateY = coordinateY2;
 }
