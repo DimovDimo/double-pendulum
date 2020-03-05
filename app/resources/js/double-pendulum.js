@@ -46,36 +46,45 @@ let length2 = getPendulumLength(width, height, radius2);
 let lastCoordinateX = startCoordinate(width, true);	
 let lastCoordinateY = startCoordinate(height, false);
 
+let newCoordinateWidth = 0;
+let newCoordinateHeight = 0;
+
+let coordinateX1 = 0;
+let coordinateY1 = 0;
+
+let coordinateX2 = 0;
+let coordinateY2 = 0;
+
+let radians1 = 0;
+let radians2 = 0;
+
 animation();
 
 function animation(){
-	canvasClearRect(context1);
-	doublePendulum();
+	canvasPendulum();
 	
-	contextBeginPath(context1);
-	
-	let newCoordinateWidth = getNewCoordinate(width);
-	let newCoordinateHeight = getNewCoordinate(height);
+	newCoordinateWidth = getNewCoordinate(width);
+	newCoordinateHeight = getNewCoordinate(height);
 	context1.moveTo(newCoordinateWidth, newCoordinateHeight);
 	
-	let coordinateX1 = getLineCoordinate(newCoordinateWidth, length1, angle1, true);
-	let coordinateY1 = getLineCoordinate(newCoordinateHeight, length1, angle1, false);	
+	coordinateX1 = getLineCoordinate(newCoordinateWidth, length1, angle1, true);
+	coordinateY1 = getLineCoordinate(newCoordinateHeight, length1, angle1, false);	
 	contextLineTo(context1, coordinateX1, coordinateY1);
 	
-	let coordinateX2 = getLineCoordinate(coordinateX1, length2, angle2, true);
-	let coordinateY2 = getLineCoordinate(coordinateY1, length2, angle2, false);	
+	coordinateX2 = getLineCoordinate(coordinateX1, length2, angle2, true);
+	coordinateY2 = getLineCoordinate(coordinateY1, length2, angle2, false);	
 	contextLineTo(context1, coordinateX2, coordinateY2);
 	
 	contextStroke(context1);
-
-	let radians1 = getRadians(mass1);
-	let radians2 = getRadians(mass2);
-
+		
+	radians1 = getRadians(mass1);
+	radians2 = getRadians(mass2);
+	
 	contextBeginPath(context1);
 	
 	contextArc(context1, coordinateX1, coordinateY1, radians1);
 	contextArc(context1, coordinateX2, coordinateY2, radians2);
-
+	
 	context1.fill();
 	
 	contextBeginPath(context2);
@@ -86,7 +95,7 @@ function animation(){
 	contextLineStyle(context2);
 	
 	context2.stroke();
-
+	
 	setLastCoordinates(coordinateX2, coordinateY2);
 
 	requestAnimationFrame(animation);
@@ -258,4 +267,10 @@ function contextLineStyle(context){
 function setLastCoordinates(coordinateX2, coordinateY2){
 	lastCoordinateX = coordinateX2;
 	lastCoordinateY = coordinateY2;
+}
+
+function canvasPendulum(){
+	canvasClearRect(context1);
+	doublePendulum();	
+	contextBeginPath(context1);
 }
