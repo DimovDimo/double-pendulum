@@ -62,10 +62,7 @@ animation();
 
 function animation(){
 	canvasPendulum();
-	
-	newCoordinateWidth = getNewCoordinate(width);
-	newCoordinateHeight = getNewCoordinate(height);
-	context1.moveTo(newCoordinateWidth, newCoordinateHeight);
+	contextNewCoordinates();
 	
 	coordinateX1 = getLineCoordinate(newCoordinateWidth, length1, angle1, true);
 	coordinateY1 = getLineCoordinate(newCoordinateHeight, length1, angle1, false);	
@@ -273,4 +270,10 @@ function canvasPendulum(){
 	canvasClearRect(context1);
 	doublePendulum();	
 	contextBeginPath(context1);
+}
+
+function contextNewCoordinates(){
+	newCoordinateWidth = getNewCoordinate(width);
+	newCoordinateHeight = getNewCoordinate(height);
+	context1.moveTo(newCoordinateWidth, newCoordinateHeight);
 }
