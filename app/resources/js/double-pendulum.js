@@ -63,14 +63,7 @@ animation();
 function animation(){
 	canvasPendulum();
 	contextNewCoordinates();
-	
-	coordinateX1 = getLineCoordinate(newCoordinateWidth, length1, angle1, true);
-	coordinateY1 = getLineCoordinate(newCoordinateHeight, length1, angle1, false);	
-	contextLineTo(context1, coordinateX1, coordinateY1);
-	
-	coordinateX2 = getLineCoordinate(coordinateX1, length2, angle2, true);
-	coordinateY2 = getLineCoordinate(coordinateY1, length2, angle2, false);	
-	contextLineTo(context1, coordinateX2, coordinateY2);
+	contextsLine();
 	
 	contextStroke(context1);
 		
@@ -276,4 +269,14 @@ function contextNewCoordinates(){
 	newCoordinateWidth = getNewCoordinate(width);
 	newCoordinateHeight = getNewCoordinate(height);
 	context1.moveTo(newCoordinateWidth, newCoordinateHeight);
+}
+
+function contextsLine(){
+	coordinateX1 = getLineCoordinate(newCoordinateWidth, length1, angle1, true);
+	coordinateY1 = getLineCoordinate(newCoordinateHeight, length1, angle1, false);	
+	contextLineTo(context1, coordinateX1, coordinateY1);
+	
+	coordinateX2 = getLineCoordinate(coordinateX1, length2, angle2, true);
+	coordinateY2 = getLineCoordinate(coordinateY1, length2, angle2, false);	
+	contextLineTo(context1, coordinateX2, coordinateY2);
 }
