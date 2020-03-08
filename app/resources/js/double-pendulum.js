@@ -272,10 +272,17 @@ function contextNewCoordinates(){
 }
 
 function contextsLine(){
+	lineContext1();
+	lineContext2();
+}
+
+function lineContext1(){
 	coordinateX1 = getLineCoordinate(newCoordinateWidth, length1, angle1, true);
 	coordinateY1 = getLineCoordinate(newCoordinateHeight, length1, angle1, false);	
 	contextLineTo(context1, coordinateX1, coordinateY1);
-	
+}
+
+function lineContext2(){
 	coordinateX2 = getLineCoordinate(coordinateX1, length2, angle2, true);
 	coordinateY2 = getLineCoordinate(coordinateY1, length2, angle2, false);	
 	contextLineTo(context1, coordinateX2, coordinateY2);
