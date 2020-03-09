@@ -64,18 +64,7 @@ function animation(){
 	canvasPendulum();
 	contextNewCoordinates();
 	contextsLine();
-	
-	contextStroke(context1);
-		
-	radians1 = getRadians(mass1);
-	radians2 = getRadians(mass2);
-	
-	contextBeginPath(context1);
-	
-	contextArc(context1, coordinateX1, coordinateY1, radians1);
-	contextArc(context1, coordinateX2, coordinateY2, radians2);
-	
-	context1.fill();
+	contextRadians();
 	
 	contextBeginPath(context2);
 	
@@ -286,4 +275,18 @@ function lineContext2(){
 	coordinateX2 = getLineCoordinate(coordinateX1, length2, angle2, true);
 	coordinateY2 = getLineCoordinate(coordinateY1, length2, angle2, false);	
 	contextLineTo(context1, coordinateX2, coordinateY2);
+}
+
+function contextRadians(){
+	contextStroke(context1);
+		
+	radians1 = getRadians(mass1);
+	radians2 = getRadians(mass2);
+	
+	contextBeginPath(context1);
+	
+	contextArc(context1, coordinateX1, coordinateY1, radians1);
+	contextArc(context1, coordinateX2, coordinateY2, radians2);
+	
+	context1.fill();
 }
