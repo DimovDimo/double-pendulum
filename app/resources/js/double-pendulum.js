@@ -65,15 +65,7 @@ function animation(){
 	contextNewCoordinates();
 	contextsLine();
 	contextRadians();
-	
-	contextBeginPath(context2);
-	
-	context2.moveTo(lastCoordinateX,lastCoordinateY);
-	contextLineTo(context2, coordinateX2, coordinateY2);
-	
-	contextLineStyle(context2);
-	
-	context2.stroke();
+	contextsStyle();
 	
 	setLastCoordinates(coordinateX2, coordinateY2);
 
@@ -279,14 +271,18 @@ function lineContext2(){
 
 function contextRadians(){
 	contextStroke(context1);
-		
-	radians1 = getRadians(mass1);
-	radians2 = getRadians(mass2);
-	
 	contextBeginPath(context1);
-	
+	radians1 = getRadians(mass1);
+	radians2 = getRadians(mass2);	
 	contextArc(context1, coordinateX1, coordinateY1, radians1);
-	contextArc(context1, coordinateX2, coordinateY2, radians2);
-	
+	contextArc(context1, coordinateX2, coordinateY2, radians2);	
 	context1.fill();
+}
+
+function contextsStyle(){
+	contextBeginPath(context2);	
+	context2.moveTo(lastCoordinateX,lastCoordinateY);
+	contextLineTo(context2, coordinateX2, coordinateY2);	
+	contextLineStyle(context2);	
+	context2.stroke();
 }
