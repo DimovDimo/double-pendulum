@@ -61,14 +61,12 @@ let radians2 = 0;
 animation();
 
 function animation(){
-	canvasPendulum();
+	canvasPendulum();	
 	contextNewCoordinates();
 	contextsLine();
 	contextRadians();
 	contextsStyle();
-	
-	setLastCoordinates(coordinateX2, coordinateY2);
-
+	lastCoordinates();
 	requestAnimationFrame(animation);
 }
 
@@ -285,4 +283,8 @@ function contextsStyle(){
 	contextLineTo(context2, coordinateX2, coordinateY2);	
 	contextLineStyle(context2);	
 	context2.stroke();
+}
+
+function lastCoordinates(){
+	setLastCoordinates(coordinateX2, coordinateY2);
 }
