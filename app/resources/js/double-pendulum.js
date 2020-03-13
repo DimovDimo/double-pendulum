@@ -5,16 +5,16 @@ const coordinateConstant = 2;
 const arcConstant = 0;
 const piCoordinateConstant = Math.PI * coordinateConstant;
 const contextLineWidthConstant = 2;
-const contexStrokeStyleConstant = "#000";
+const contexStrokeStyleConstant = "blue";
 
-let gravity = getRandomArbitrary(0.50, 1);
+let gravity = getRandomArbitrary(0.50, 0.75);
 let radians = getRandomArbitrary(20, 30);
 
-let mass1 = getRandomArbitrary(8, 12);
-let mass2 = getRandomArbitrary(5, 8);
+let mass1 = getRandomArbitrary(8, 10);
+let mass2 = getRandomArbitrary(5, 7);
 
-let radius1 = getRandomArbitrary(0.15, 0.25);
-let radius2 = getRandomArbitrary(0.15, 0.25);
+let radius1 = getRandomArbitrary(0.15, 0.20);
+let radius2 = getRandomArbitrary(0.15, 0.20);
 
 let angle1 = getRandomAngle();
 let angle2 = getRandomAngle();
